@@ -1,7 +1,7 @@
 {
-  "name": "typescript-react-starter",
+  "name": "contacts-app",
   "version": "0.0.1",
-  "description": "A jumping off point for frontend apps built with react and typescript",
+  "description": "A simple roledex",
   "main": "index.tsx",
   "scripts": {
     "clean": "rm -rf ./dist",
@@ -11,18 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blaqbern/typescript-react-starter"
+    "url": "git+https://github.com/blaqbern/contacts-app"
   },
-  "keywords": [
-    "React",
-    "TypeScript"
-  ],
   "author": "Chris Blackburn",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/blaqbern/typescript-react-starter"
+    "url": "https://github.com/blaqbern/contacts-app"
   },
-  "homepage": "https://github.com/blaqbern/typescript-react-starter#readme",
+  "homepage": "https://github.com/blaqbern/contacts-app#readme",
   "devDependencies": {
     "@types/react-hot-loader": "^4.1.0",
     "@types/react-redux": "^6.0.6",
