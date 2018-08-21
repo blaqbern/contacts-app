@@ -8,7 +8,7 @@ const baseConfig = {
     filename: 'bundle.js',
     publicPath: '/dist/',
   },
-  resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.css'] },
+  resolve: { extensions: ['.ts', '.tsx', '.js', '.css'] },
   module: { rules : require('./webpack/loaders') },
   plugins: require('./webpack/plugins')(env),
 }

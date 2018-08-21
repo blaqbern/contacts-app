@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "start": "NODE_ENV='development' PORT=8090 node devServer",
+    "start": "NODE_ENV='development' PORT=8090 node devServer & node server.js",
     "build": "npm run clean && NODE_ENV='production' PORT=3000 webpack",
     "freshnm": "rm -rf node_modules && yarn"
   },
@@ -25,9 +25,14 @@
   "homepage": "https://github.com/blaqbern/typescript-react-starter#readme",
   "devDependencies": {
     "@types/react-hot-loader": "^4.1.0",
+    "@types/react-redux": "^6.0.6",
+    "@types/redux-thunk": "^2.1.0",
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "react-hot-loader": "^4.3.4",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.4.2",
     "tslint": "^5.11.0",
@@ -40,6 +45,7 @@
   "dependencies": {
     "@types/react": "^16.4.8",
     "@types/react-dom": "^16.0.7",
+    "express": "^4.16.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   }
