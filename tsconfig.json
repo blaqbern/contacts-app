@@ -17,7 +17,15 @@
     "allowJs": false,
     "checkJs": false,
     "allowUnusedLabels": false,
-    "allowUnreachableCode": false
+    "allowUnreachableCode": false,
+    "baseUrl": ".",
+    "paths": {
+      "@service": ["src/contacts-service"],
+      "@styles": ["src/_shared-styles"],
+      "@store": ["src/redux"],
+      "@store/*": ["src/redux/*"],
+      "@components/*": ["src/components/*"]
+    }
   },
   "compileOnSave": false,
   "include": [

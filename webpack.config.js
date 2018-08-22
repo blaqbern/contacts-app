@@ -8,7 +8,15 @@ const baseConfig = {
     filename: 'bundle.js',
     publicPath: '/dist/',
   },
-  resolve: { extensions: ['.ts', '.tsx', '.js', '.css'] },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.css'],
+    alias: {
+      '@service': root('src', 'contacts-service'),
+      '@store': root('src', 'redux'),
+      '@components': root('src', 'components'),
+      '@styles': root('src', '_shared-styles'),
+    },
+  },
   module: { rules : require('./webpack/loaders') },
   plugins: require('./webpack/plugins')(env),
 }

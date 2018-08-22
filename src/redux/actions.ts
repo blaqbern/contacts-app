@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
-import { Contact, ContactsJson, getContacts as getContactsService } from '../contacts-service'
+import { Contact, ContactsJson, getContacts as getContactsService } from '@service'
 import { State, Action, ActionType } from './redux.types'
 
 export interface CreateContactAction {

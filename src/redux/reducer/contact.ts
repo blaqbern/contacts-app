@@ -1,4 +1,4 @@
-import { Contact } from '../../contacts-service'
+import { Contact } from '@service'
 import { Action, ActionType } from '../redux.types'
 
 const emptyContact = { id: '', name: '', email: '', phone: '' }
