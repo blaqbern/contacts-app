@@ -2,6 +2,8 @@ import { style } from 'typestyle'
 
 import { Color } from './colors'
 
+export const fontFamily = 'IBM Plex Sans'
+
 export const h1 = style({
   fontWeight: 400,
   color: Color.TEXT_2,

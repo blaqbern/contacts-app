@@ -8,7 +8,7 @@ import { configureStore } from './redux'
 
 import { initializeStyles } from '@styles'
 
-const renderApp = (component: typeof App) =>
+const renderApp = (component: typeof App) => {
   render(
     <AppContainer>
       <Provider store={configureStore()}>
@@ -17,10 +17,11 @@ const renderApp = (component: typeof App) =>
     </AppContainer>,
     document.querySelector('#root')
   )
+  initializeStyles()
+}
 
 renderApp(App)
-initializeStyles()
 
 if ((module as any).hot) {
-  (module as any).hot.accept('./components/app', () => renderApp(App))
+  (module as any).hot.accept(['./components/app', '@styles'], () => renderApp(App))
 }

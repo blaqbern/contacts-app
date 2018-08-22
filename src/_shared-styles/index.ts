@@ -1,3 +1,3 @@
-export { initializeStyles } from './base-styles'
+export { initializeStyles } from './init'
 export * from './colors'
 export * from './typography'

@@ -2,16 +2,19 @@ import { setupPage, normalize } from 'csstips'
 import { cssRaw, cssRule, style, forceRenderStyles } from 'typestyle'
 
 import { Color } from './colors'
+import { fontFamily } from './typography'
+
+const googleFontsFamily = fontFamily.replace(/ /g, '+')
 
 export function initializeStyles() {
   cssRaw(`
-    @import url('https://fonts.googleapis.com/css?family=Fira+Sans:200,400');
+    @import url('https://fonts.googleapis.com/css?family=${googleFontsFamily}:200,700');
   `)
   normalize()
   setupPage('#root')
 
   cssRule('body', {
-    fontFamily: '"Fira Sans", sans-serif',
+    fontFamily: `"${fontFamily.replace(/\+/g, ' ')}", sans-serif`,
     fontWeight: 200,
     color: Color.TEXT,
     background: Color.VOID,
