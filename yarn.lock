@@ -968,9 +968,15 @@ csstips@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/csstips/-/csstips-0.3.0.tgz#e9a069363fbd53002ac4dd4221b5f4ad4e18f65c"
 
-csstype@^2.2.0, csstype@^2.4.0:
+csstype@^2.2.0, csstype@^2.4.0, csstype@^2.5.1:
   version "2.5.6"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.6.tgz#2ae1db2319642d8b80a668d2d025c6196071e788"
+
+csx@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/csx/-/csx-9.0.0.tgz#490ea99eac6834a8c90ecfc555e5e77e7eb00a03"
+  dependencies:
+    csstype "^2.5.1"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"

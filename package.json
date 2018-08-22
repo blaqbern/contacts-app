@@ -25,6 +25,7 @@
     "@types/redux-thunk": "^2.1.0",
     "css-loader": "^1.0.0",
     "csstips": "^0.3.0",
+    "csx": "^9.0.0",
     "file-loader": "^1.1.11",
     "react-hot-loader": "^4.3.4",
     "react-redux": "^5.0.7",

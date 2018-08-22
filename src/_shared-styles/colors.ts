@@ -1,4 +1,5 @@
 export const enum Color {
+  WHITE = '#ffffff',
   BACKGROUND = '#e8f8f5',
   TEXT = '#2c3e50',
   TEXT_2 = '#34495e',

@@ -5,14 +5,14 @@ import { Color } from './colors'
 export const fontFamily = 'IBM Plex Sans'
 
 export const h1 = style({
-  fontWeight: 400,
+  fontWeight: 700,
   color: Color.TEXT_2,
-  fontSize: '1.5rem',
+  fontSize: '2rem',
 })
 
 export const h3 = style({
   color: Color.TEXT_3,
-  fontSize: '1.2rem',
+  fontSize: '1.4rem',
 })
 
 export const link = style({
