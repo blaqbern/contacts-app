@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'
 import App from './components/app'
 import { configureStore } from './redux'
 
+import { initializeStyles } from '@styles'
+
 const renderApp = (component: typeof App) =>
   render(
     <AppContainer>
@@ -17,6 +19,7 @@ const renderApp = (component: typeof App) =>
   )
 
 renderApp(App)
+initializeStyles()
 
 if ((module as any).hot) {
   (module as any).hot.accept('./components/app', () => renderApp(App))

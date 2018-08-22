@@ -5,7 +5,7 @@ import { ThunkAction } from 'redux-thunk'
 import { State, Action } from '../../redux'
 import { Contact, ContactsJson } from '../../contacts-service'
 
-import '../../assets/shared-styles'
+import * as styles from './app.styles'
 
 interface PropsFromStore {
   contacts: (Contact | undefined)[]
