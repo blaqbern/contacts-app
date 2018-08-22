@@ -5,7 +5,7 @@
   "main": "index.tsx",
   "scripts": {
     "clean": "rm -rf ./dist",
-    "start": "NODE_ENV='development' PORT=8090 node devServer & node server.js",
+    "start": "NODE_ENV='development' PORT=8090 node ./webpack/devServer & node ./api/server.js",
     "build": "npm run clean && NODE_ENV='production' PORT=3000 webpack",
     "freshnm": "rm -rf node_modules && yarn"
   },

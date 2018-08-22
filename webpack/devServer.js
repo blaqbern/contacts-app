@@ -1,8 +1,10 @@
+const { root } = require('./utils')
+
 const port = process.env.PORT || 8080
 
 const WebpackDevServer = require('webpack-dev-server')
 const webpack = require('webpack')
-const config = require('./webpack.config')
+const config = require(root('webpack.config'))
 const compiler = webpack(config)
 
 new WebpackDevServer(compiler, {
