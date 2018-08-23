@@ -17,14 +17,7 @@ export class ContactList extends React.PureComponent<ContactListProps> {
       <div className={styles.contactList}>
         <div className={styleguide.h1}>Contacts</div>
         {contacts.map(c =>
-          c && (
-            <ContactTile
-              key={c.id}
-              contact={c}
-              onDeleteContact={() => {}}
-              onUpdateContact={() => {}}
-            />
-          )
+          c && <ContactTile key={c.id} contact={c} />
         )}
       </div>
     )
