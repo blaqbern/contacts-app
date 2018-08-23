@@ -3,8 +3,8 @@ import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import { Provider } from 'react-redux'
 
-import App from './components/app'
-import { configureStore } from './redux'
+import App from '@components/app'
+import { configureStore } from '@store'
 
 import { initializeStyles } from '@styles'
 
@@ -23,5 +23,5 @@ const renderApp = (component: typeof App) => {
 renderApp(App)
 
 if ((module as any).hot) {
-  (module as any).hot.accept(['./components/app', '@styles'], () => renderApp(App))
+  (module as any).hot.accept(['@components/app', '@styles'], () => renderApp(App))
 }

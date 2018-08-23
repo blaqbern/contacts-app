@@ -1,4 +1,4 @@
-import { State, Action, ActionType } from '../redux.types'
+import { State, Action, ActionType } from '../store.types'
 import { contact as contactReducer } from './contact'
 
 export function contacts(state: State = { contacts: [] }, action: Action) {

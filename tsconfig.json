@@ -22,8 +22,8 @@
     "paths": {
       "@service": ["src/contacts-service"],
       "@styles": ["src/_shared-styles"],
-      "@store": ["src/redux"],
-      "@store/*": ["src/redux/*"],
+      "@store": ["src/store"],
+      "@store/*": ["src/store/*"],
       "@components/*": ["src/components/*"]
     }
   },

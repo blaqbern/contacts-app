@@ -12,7 +12,7 @@ const baseConfig = {
     extensions: ['.ts', '.tsx', '.js', '.css'],
     alias: {
       '@service': root('src', 'contacts-service'),
-      '@store': root('src', 'redux'),
+      '@store': root('src', 'store'),
       '@components': root('src', 'components'),
       '@styles': root('src', '_shared-styles'),
     },
