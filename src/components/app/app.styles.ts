@@ -1,4 +1,5 @@
 import { style } from 'typestyle'
+import { viewHeight } from 'csx'
 
 import { Color } from '@styles'
 
@@ -9,8 +10,9 @@ const insidePadding = outsidePadding / 2
 export const app = style({
   $debugName: 'app',
   display: 'flex',
-  background: Color.BACKGROUND,
   justifyContent: 'center',
+  minHeight: viewHeight(100),
+  background: Color.BACKGROUND,
   $nest: {
     '.twoThirds': {
       flex: 3,
