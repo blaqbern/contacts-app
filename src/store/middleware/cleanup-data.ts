@@ -3,23 +3,42 @@ import { Middleware, MiddlewareAPI, Dispatch } from 'redux'
 import { Contact, ContactData } from '@src/types'
 import { ActionType } from '@store'
 
-export const cleanupMiddleware: Middleware = ({ getState }: MiddlewareAPI) => (next: Dispatch) => action => {
-  if (!action.meta || !action.meta.dataFromApi) return next(action)
+export const cleanupData: Middleware = ({ getState }: MiddlewareAPI) => (next: Dispatch) => action => {
+  switch (action.type) {
+    case ActionType.GET_CONTACTS_SUCCESS:
+      const contacts = action.payload.contacts.map((c: Contact) => {
+        return {
+          id: c.id,
+          ...cleanupContactData(c)
+        }
+      })
 
-  const contacts = action.payload.contacts.map((c: Contact) => cleanupContactData(c))
+      return next({
+        type: action.type,
+        payload: { contacts }
+      })
+    case ActionType.CREATE:
+    case ActionType.UPDATE:
+      const contactData = cleanupContactData(action.payload.contactData)
 
-  return next({
-    type: action.type,
-    payload: { contacts }
-  })
+      return next({
+        type: action.type,
+        payload: {
+          ...action.payload,
+          contactData,
+        }
+      })
+    default:
+      return next(action)
+  }
 }
 
-function cleanupContactData(contact: Contact): Contact {
-  const { id, email } = contact
-  const name = contact.name.replace(/([A-Z][a-z]*).*([A-Z][a-z]*)/, '$1 $2')
-  const phone = formatPhoneNumber(contact.phone.replace(/[^\d]/g, ''))
+function cleanupContactData(contactData: ContactData & { id?: string }): ContactData {
+  const { email } = contactData
+  const name = contactData.name.replace(/([A-Z][a-z]*).*([A-Z][a-z]*)/, '$1 $2')
+  const phone = formatPhoneNumber(contactData.phone.replace(/[^\d]/g, ''))
 
-  return { id, name, email, phone }
+  return { name, email, phone }
 }
 
 function formatPhoneNumber(phoneNo: string): string {
