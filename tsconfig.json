@@ -20,6 +20,8 @@
     "allowUnreachableCode": false,
     "baseUrl": ".",
     "paths": {
+      "@root/*": ["./*"],
+      "@src/*": ["src/*"],
       "@service": ["src/contacts-service"],
       "@styles": ["src/_shared-styles"],
       "@store": ["src/store"],

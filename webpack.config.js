@@ -11,6 +11,8 @@ const baseConfig = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.css'],
     alias: {
+      '@root': root(),
+      '@src': root('src'),
       '@service': root('src', 'contacts-service'),
       '@store': root('src', 'store'),
       '@components': root('src', 'components'),
