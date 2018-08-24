@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Contact } from '@service'
+import { Contact, ContactData } from '@src/types'
 
 import * as styleguide from '@styles'
 import * as styles from './contact-tile.styles'
@@ -9,7 +9,7 @@ interface ContactTileOwnProps {
   contact: Contact
 }
 interface ContactTilePropsFromStore {
-  updateContact(contactId: string, contactData: Partial<Contact>): void
+  updateContact(contactId: string, contactData: ContactData): void
   deleteContact(contactId: string): void
 }
 type ContactTileProps = ContactTileOwnProps & ContactTilePropsFromStore
@@ -41,7 +41,7 @@ const ContactDetailsReadonly: React.SFC<ContactDetailsProps> = ({ contact, openE
 interface EditContactDetailsProps {
   contact: Contact
   closeEditor(): void
-  onSubmitUpdate(contactData: Partial<Contact>): void
+  onSubmitUpdate(contactData: ContactData): void
 }
 interface EditContactDetailsState {
   name: string
@@ -98,7 +98,7 @@ export class ContactTile extends React.PureComponent<ContactTileProps, ContactTi
   }
 
   handleDeleteClick = () => this.props.deleteContact(this.props.contact.id)
-  handleSubmitUpdate = (contactData: Partial<Contact>) =>
+  handleSubmitUpdate = (contactData: ContactData) =>
     this.props.updateContact(this.props.contact.id, contactData)
 
   enterEditMode = () => this.setState({ isEditing: true })

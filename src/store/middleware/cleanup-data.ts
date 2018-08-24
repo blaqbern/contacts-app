@@ -1,6 +1,7 @@
 import { Middleware, MiddlewareAPI, Dispatch } from 'redux'
 
-import { Contact } from '@service'
+import { Contact, ContactData } from '@src/types'
+import { ActionType } from '@store'
 
 export const cleanupMiddleware: Middleware = ({ getState }: MiddlewareAPI) => (next: Dispatch) => action => {
   if (!action.meta || !action.meta.dataFromApi) return next(action)

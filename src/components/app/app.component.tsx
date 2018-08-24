@@ -3,7 +3,7 @@ import { Dispatch } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
 import { State, Action } from '@store'
-import { Contact, ContactsJson } from '@service'
+import { Contact } from '@src/types'
 import { ContactList } from '@components/contact-list'
 // import { ActionPanel } from '@components/action-panel'
 

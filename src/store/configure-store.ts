@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 
 import { State } from '@store'
-import { cleanupMiddleware } from './middleware/cleanup-data'
+import { cleanupData } from './middleware/cleanup-data'
 import { contacts as rootReducer } from './reducer'
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -10,7 +10,7 @@ export function configureStore<State>() {
   const store = createStore(
     rootReducer,
     composeEnhancers(
-      applyMiddleware(thunk, cleanupMiddleware)
+      applyMiddleware(thunk, cleanupData)
     )
   )
 

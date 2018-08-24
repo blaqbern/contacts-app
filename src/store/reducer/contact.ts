@@ -1,4 +1,4 @@
-import { Contact } from '@service'
+import { Contact } from '@src/types'
 import { Action, ActionType } from '../store.types'
 
 const emptyContact = { id: '', name: '', email: '', phone: '' }

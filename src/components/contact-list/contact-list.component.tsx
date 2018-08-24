@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { Contact } from '@service'
+import { Contact } from '@src/types'
 import { ContactTile } from '@components/contact-tile'
 
 import * as styles from './contact-list.styles'

@@ -1,3 +1,5 @@
+import { Omit } from '@root/type-utils'
+
 export interface Contact {
   id: string
   name: string
@@ -5,6 +7,4 @@ export interface Contact {
   phone: string
 }
 
-export interface ContactsJson {
-  contacts: Contact[]
-}
+export type ContactData = Omit<Contact, 'id'>

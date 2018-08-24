@@ -1,4 +1,4 @@
-import { Contact } from '@service'
+import { Contact } from '@src/types'
 import {
   CreateContactAction,
   UpdateContactAction,
