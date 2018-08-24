@@ -49,11 +49,15 @@ export interface GetContactsSuccessAction {
   payload: {
     contacts: Contact[]
   }
+  meta: {
+    dataFromApi: true
+  }
 }
 export function getContactsSuccess(contacts: Contact[]) {
   return {
     type: ActionType.GET_CONTACTS_SUCCESS,
     payload: { contacts },
+    meta: { dataFromApi: true },
   }
 }
 
