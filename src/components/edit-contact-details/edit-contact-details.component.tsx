@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Contact, ContactData } from '@src/types'
+import { Input } from '@components/input'
 
 import * as styleguide from '@styles'
 
@@ -25,9 +26,13 @@ export class EditContactDetails extends React.PureComponent<
     phone: this.props.contact.phone,
   }
 
-  handleNameChange = (e: React.SyntheticEvent<HTMLInputElement>) => this.setState({ name: e.currentTarget.value })
-  handleEmailChange = (e: React.SyntheticEvent<HTMLInputElement>) => this.setState({ email: e.currentTarget.value })
-  handlePhoneChange = (e: React.SyntheticEvent<HTMLInputElement>) => this.setState({ phone: e.currentTarget.value })
+  handleInputChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
+    const fieldName = e.currentTarget.name as keyof ContactData
+    const updated = {
+      [fieldName]: e.currentTarget.value
+    } as Pick<EditContactDetailsState, keyof EditContactDetailsState>
+    this.setState(updated)
+  }
 
   handleSubmit = () => {
     this.props.onSubmitUpdate(this.state)
@@ -36,21 +41,30 @@ export class EditContactDetails extends React.PureComponent<
 
   render() {
     const { contact, closeEditor } = this.props
+
+    const fields: (keyof ContactData)[] = ['name', 'email', 'phone']
+
     return (
       <>
         <div className="details">
-          <input value={this.state.name} onChange={this.handleNameChange} />
-          <input value={this.state.email} onChange={this.handleEmailChange} />
-          <input value={this.state.phone} onChange={this.handlePhoneChange} />
+          {fields.map(field =>
+            <Input
+              fieldName={field}
+              value={this.state[field]}
+              onChange={this.handleInputChange}
+            />
+          )}
         </div>
         <div className="editButton">
-          <span className={styleguide.link} onClick={closeEditor}>
-            close
-          </span>
-        </div>
-        <div className="editButton">
-          <span className={styleguide.button} onClick={this.handleSubmit}>
+          <span
+            className={styleguide.link}
+            style={{ marginRight: 10 }}
+            onClick={this.handleSubmit}
+          >
             Save
+          </span>
+          <span className={styleguide.linkAlt} onClick={closeEditor}>
+            Close
           </span>
         </div>
       </>
