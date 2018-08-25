@@ -7,21 +7,33 @@ export const weights = [200, 400, 700] // make sure any weights listed here are 
 
 export const h1 = style({
   fontWeight: 700,
-  color: Color.TEXT_2,
+  color: Color.TEXT,
   fontSize: '2rem',
 })
 
 export const h3 = style({
-  color: Color.TEXT_3,
+  color: Color.TEXT_2,
   fontSize: '1.4rem',
 })
 
-export const link = style({
-  color: Color.ACCENT_DARK,
+const linkBaseStyles = {
   fontSize: '1rem',
   fontWeight: 400,
   cursor: 'pointer',
+}
+
+export const link = style({
+  ...linkBaseStyles,
+  color: Color.ACCENT_DARK,
   $nest: {
     '&:hover': { color: Color.ACCENT },
+  },
+})
+
+export const linkAlt = style({
+  ...linkBaseStyles,
+  color: Color.TEXT,
+  $nest: {
+    '&:hover': { color: Color.TEXT_2 },
   },
 })

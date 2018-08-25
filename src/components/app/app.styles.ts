@@ -3,30 +3,22 @@ import { viewHeight } from 'csx'
 
 import { Color } from '@styles'
 
-const topBottomPadding = 25
-const outsidePadding = 40
-const insidePadding = outsidePadding / 2
+export const container = style({
+  minHeight: viewHeight(100),
+  background: Color.BACKGROUND,
+  paddingTop: 40,
+  paddingBottom: 40,
+})
 
 export const app = style({
   $debugName: 'app',
   display: 'flex',
-  justifyContent: 'center',
-  minHeight: viewHeight(100),
-  background: Color.BACKGROUND,
+  justifyContent: 'space-between',
+  margin: 'auto',
+  maxWidth: 1000,
   $nest: {
-    '.twoThirds': {
-      flex: 3,
-      paddingTop: topBottomPadding,
-      paddingBotom: topBottomPadding,
-      paddingRight: outsidePadding,
-      paddingLeft: insidePadding,
-    },
-    '.oneThird': {
-      flex: 2,
-      paddingTop: topBottomPadding,
-      paddingBotom: topBottomPadding,
-      paddingLeft: outsidePadding,
-      paddingRight: insidePadding,
+    '.left, .right': {
+      width: `calc(50% - 15px)`
     },
   },
 })

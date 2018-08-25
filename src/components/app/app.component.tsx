@@ -5,7 +5,6 @@ import { ThunkAction } from 'redux-thunk'
 import { State, Action } from '@store'
 import { Contact } from '@src/types'
 import { ContactList } from '@components/contact-list'
-// import { ActionPanel } from '@components/action-panel'
 
 import * as styles from './app.styles'
 
@@ -21,12 +20,14 @@ export default class App extends React.PureComponent<PropsFromStore> {
 
   render() {
     return (
-      <div className={styles.app}>
-        <div className="oneThird">
-          <ContactList contacts={this.props.contacts} />
-        </div>
-        <div className="twoThirds">
-          {/*<ActionPanel />*/}
+      <div className={styles.container}>
+        <div className={styles.app}>
+          <div className="left">
+            <ContactList contacts={this.props.contacts} />
+          </div>
+          <div className="right">
+            {/* TODO */}
+          </div>
         </div>
       </div>
     )

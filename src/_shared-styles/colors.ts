@@ -1,9 +1,10 @@
+import { ColorHelper } from 'csx'
+
 export const enum Color {
   WHITE = '#ffffff',
   BACKGROUND = '#e8f8f5',
   TEXT = '#2c3e50',
-  TEXT_2 = '#34495e',
-  TEXT_3 = '#5d6d7e',
+  TEXT_2 = '#537ab6',
   ACCENT = '#a3e4d7',
   ACCENT_LIGHT = '#d1f2eb',
   ACCENT_DARK = '#73c6b6',
