@@ -30,7 +30,7 @@ export class EditContactDetails extends React.PureComponent<
   handleInputChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const fieldName = e.currentTarget.name as keyof ContactData
     const updated = {
-      [fieldName]: e.currentTarget.value
+      [fieldName]: e.currentTarget.value,
     } as Pick<EditContactDetailsState, keyof EditContactDetailsState>
     this.setState(updated)
   }

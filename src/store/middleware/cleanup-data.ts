@@ -9,13 +9,13 @@ export const cleanupData: Middleware = ({ getState }: MiddlewareAPI) => (next: D
       const contacts = action.payload.contacts.map((c: Contact) => {
         return {
           id: c.id,
-          ...cleanupContactData(c)
+          ...cleanupContactData(c),
         }
       })
 
       return next({
         type: action.type,
-        payload: { contacts }
+        payload: { contacts },
       })
     case ActionType.CREATE:
     case ActionType.UPDATE:
@@ -26,7 +26,7 @@ export const cleanupData: Middleware = ({ getState }: MiddlewareAPI) => (next: D
         payload: {
           ...action.payload,
           contactData,
-        }
+        },
       })
     default:
       return next(action)

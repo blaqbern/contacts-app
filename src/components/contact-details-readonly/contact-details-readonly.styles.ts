@@ -4,5 +4,5 @@ import { detailsStyles } from '@components/edit-contact-details/edit-contact-det
 
 export const detailsReadonly = style({
   $debugName: 'detailsReadonly',
-  $nest: { ...detailsStyles }
+  $nest: { ...detailsStyles },
 })

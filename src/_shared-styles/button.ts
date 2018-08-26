@@ -16,6 +16,6 @@ export const button = style({
     '&:hover': {
       border: '1px solid transparent',
       background: Color.ACCENT,
-    }
-  }
+    },
+  },
 })

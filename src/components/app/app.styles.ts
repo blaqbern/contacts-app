@@ -18,7 +18,7 @@ export const app = style({
   maxWidth: 1000,
   $nest: {
     '.left, .right': {
-      width: `calc(50% - 15px)`
+      width: `calc(50% - 15px)`,
     },
   },
 })
