@@ -34,10 +34,10 @@ export default class App extends React.PureComponent<PropsFromStore> {
     return (
       <div className={styles.container}>
         <div className={styles.app}>
-          <div className="left">
+          <div>
             <ContactList contacts={this.props.contacts} />
           </div>
-          <div className="right">
+          <div>
             <FormStateManager render={this.renderCreateContact} />
           </div>
         </div>

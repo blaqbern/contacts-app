@@ -14,7 +14,8 @@ export const h1 = style({
 
 export const h3 = style({
   $debugName: 'h3',
-  color: Color.TEXT_2,
+  color: Color.TEXT,
+  fontWeight: 400,
   fontSize: '1.4rem',
 })
 

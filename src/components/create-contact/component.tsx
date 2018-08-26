@@ -5,6 +5,7 @@ import { CreateContactAction } from '@store'
 import { Input } from '@components/input'
 
 import * as styleguide from '@styles'
+import * as styles from './styles'
 
 interface OwnProps {
   createContact(contactData: ContactData): CreateContactAction
@@ -28,19 +29,22 @@ export class CreateContact extends React.PureComponent<Props> {
     const fields: (keyof ContactData)[] = ['name', 'email', 'phone']
 
     return (
-      <div>
-        {fields.map(field =>
-          <Input
-            key={field}
-            fieldName={field}
-            value={contactData[field]}
-            onChange={handleInputChange}
-          />
-        )}
+      <div className={styles.createContact}>
+        <div className={styleguide.h3}>Create a new contact</div>
+        <div className="inputs">
+          {fields.map(field =>
+            <Input
+              key={field}
+              fieldName={field}
+              value={contactData[field]}
+              onChange={handleInputChange}
+            />
+          )}
+        </div>
 
-        <span className={styleguide.link} onClick={this.handleSubmit}>
+        <div className={styleguide.buttonAlt} onClick={this.handleSubmit}>
           Save
-        </span>
+        </div>
       </div>
     )
   }

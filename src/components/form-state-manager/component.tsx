@@ -35,6 +35,6 @@ export class FormStateManager extends React.PureComponent<Props, State> {
       resetForm: () => this.setState({ name: '', email: '', phone: '' }),
     }
 
-    return <div>{this.props.render(args)}</div>
+    return this.props.render(args)
   }
 }

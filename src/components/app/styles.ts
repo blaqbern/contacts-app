@@ -12,12 +12,13 @@ export const container = style({
 
 export const app = style({
   $debugName: 'app',
+  position: 'relative',
   display: 'flex',
   justifyContent: 'space-between',
   margin: 'auto',
   maxWidth: 1000,
   $nest: {
-    '.left, .right': {
+    '> div': {
       width: `calc(50% - 15px)`,
     },
   },
