@@ -1,7 +1,7 @@
 import { style } from 'typestyle'
 import { color } from 'csx'
 
-import { Color, link, addMarginBetween } from '@styles'
+import { Color, addMarginBetween } from '@styles'
 
 const borderColor = color(Color.TEXT).fade(.4)
 export const contactTile = style({
@@ -13,15 +13,12 @@ export const contactTile = style({
   border: `1px solid ${borderColor}`,
   borderRadius: 2,
   $nest: {
+    ...addMarginBetween(10, { inlineElements: true }),
     '.left': {
       display: 'flex',
       flexFlow: 'column',
       justifyContent: 'space-evenly',
       flex: 5,
-      '.editButton': {
-        marginTop: 10,
-      },
-      '.details': addMarginBetween(4, true)
     },
     '.right': {
       flex: 1,

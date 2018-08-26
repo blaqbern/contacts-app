@@ -2,6 +2,7 @@ import { ColorHelper } from 'csx'
 
 export const enum Color {
   WHITE = '#ffffff',
+  LIGHT_GREY = '#eeeeee',
   BACKGROUND = '#e8f8f5',
   TEXT = '#2c3e50',
   TEXT_2 = '#537ab6',

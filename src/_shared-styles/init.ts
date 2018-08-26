@@ -22,6 +22,7 @@ export function initializeStyles() {
     fontSize: 16,
     lineHeight: 1.3,
   })
+  cssRule('input, select, textarea, button', { fontFamily: 'inherit', lineHeight: 'inherit' })
 
   forceRenderStyles()
 }

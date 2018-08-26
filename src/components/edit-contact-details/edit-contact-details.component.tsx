@@ -4,6 +4,7 @@ import { Contact, ContactData } from '@src/types'
 import { Input } from '@components/input'
 
 import * as styleguide from '@styles'
+import * as styles from './edit-contact-details.styles'
 
 interface EditContactDetailsProps {
   contact: Contact
@@ -45,29 +46,27 @@ export class EditContactDetails extends React.PureComponent<
     const fields: (keyof ContactData)[] = ['name', 'email', 'phone']
 
     return (
-      <>
+      <div className={styles.editDetails}>
         <div className="details">
-          {fields.map(field =>
+          {fields.map((field, index) =>
             <Input
+              key={`${contact.id}__${field}`}
               fieldName={field}
               value={this.state[field]}
               onChange={this.handleInputChange}
             />
           )}
         </div>
-        <div className="editButton">
-          <span
-            className={styleguide.link}
-            style={{ marginRight: 10 }}
-            onClick={this.handleSubmit}
-          >
+
+        <div className="buttonPanel">
+          <span className={styleguide.link} onClick={this.handleSubmit}>
             Save
           </span>
           <span className={styleguide.linkAlt} onClick={closeEditor}>
             Close
           </span>
         </div>
-      </>
+      </div>
     )
   }
 }
