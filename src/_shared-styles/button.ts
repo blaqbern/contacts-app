@@ -31,6 +31,6 @@ export const buttonAlt = style({
   $nest: {
     '&:hover': {
       background: Color.TEXT,
-    }
-  }
+    },
+  },
 })

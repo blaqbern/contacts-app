@@ -11,8 +11,8 @@ export function contacts(state: State = { contacts: [] }, action: Action) {
       const { name, email, phone } = action.payload.contactData
       return {
         contacts: [
-          ...state.contacts,
           { id: generateUniqueId(), name, email, phone },
+          ...state.contacts,
         ],
       }
 
