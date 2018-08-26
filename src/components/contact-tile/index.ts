@@ -1,1 +1,1 @@
-export { default as ContactTile } from './contact-tile.container'
+export { default as ContactTile } from './container'

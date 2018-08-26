@@ -3,14 +3,14 @@ import * as React from 'react'
 import { Contact } from '@src/types'
 import { ContactTile } from '@components/contact-tile'
 
-import * as styles from './contact-list.styles'
 import * as styleguide from '@styles'
+import * as styles from './styles'
 
-interface ContactListProps {
+interface Props {
   contacts: (Contact | undefined)[]
 }
 
-export class ContactList extends React.PureComponent<ContactListProps> {
+export class ContactList extends React.PureComponent<Props> {
   render() {
     const { contacts } = this.props
     return (

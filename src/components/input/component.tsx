@@ -1,15 +1,15 @@
 import * as React from 'react'
 
-import * as styles from './input.styles'
+import * as styles from './styles'
 
-interface InputProps {
+interface Props {
   fieldName: string
   value: string
   onChange?(event: React.SyntheticEvent<HTMLInputElement>): void
   readonly?: boolean
 }
 
-export const Input: React.SFC<InputProps> = ({
+export const Input: React.SFC<Props> = ({
   fieldName,
   value,
   onChange,

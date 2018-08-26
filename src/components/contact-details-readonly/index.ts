@@ -1,1 +1,1 @@
-export { ContactDetailsReadonly } from './contact-details-readonly.component'
+export { ContactDetailsReadonly } from './component'

@@ -6,7 +6,7 @@ import { State, Action } from '@store'
 import { Contact } from '@src/types'
 import { ContactList } from '@components/contact-list'
 
-import * as styles from './app.styles'
+import * as styles from './styles'
 
 interface PropsFromStore {
   contacts: (Contact | undefined)[]

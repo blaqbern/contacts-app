@@ -5,22 +5,22 @@ import { EditContactDetails } from '@components/edit-contact-details'
 import { ContactDetailsReadonly } from '@components/contact-details-readonly'
 
 import * as styleguide from '@styles'
-import * as styles from './contact-tile.styles'
+import * as styles from './styles'
 
-interface ContactTileOwnProps {
+interface OwnProps {
   contact: Contact
 }
-interface ContactTilePropsFromStore {
+interface PropsFromStore {
   updateContact(contactId: string, contactData: ContactData): void
   deleteContact(contactId: string): void
 }
-type ContactTileProps = ContactTileOwnProps & ContactTilePropsFromStore
+type Props = OwnProps & PropsFromStore
 
-interface ContactTileState {
+interface State {
   isEditing: boolean
 }
 
-export class ContactTile extends React.PureComponent<ContactTileProps, ContactTileState> {
+export class ContactTile extends React.PureComponent<Props, State> {
   state = {
     isEditing: false,
   }

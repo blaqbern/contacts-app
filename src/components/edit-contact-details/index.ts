@@ -1,1 +1,1 @@
-export { EditContactDetails } from './edit-contact-details.component';
+export { EditContactDetails } from './component';

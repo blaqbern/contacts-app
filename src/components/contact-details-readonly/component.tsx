@@ -4,14 +4,14 @@ import { Contact, ContactData } from '@src/types'
 import { Input } from '@components/input'
 
 import * as styleguide from '@styles'
-import * as styles from './contact-details-readonly.styles'
+import * as styles from './styles'
 
-interface ContactDetailsProps {
+interface Props {
   contact: Contact
   openEditor(): void
 }
 
-export const ContactDetailsReadonly: React.SFC<ContactDetailsProps> = ({ contact, openEditor }) => {
+export const ContactDetailsReadonly: React.SFC<Props> = ({ contact, openEditor }) => {
   const fields: (keyof ContactData)[] = ['name', 'email', 'phone']
   return (
     <div className={styles.detailsReadonly}>

@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 
 import { State, getContacts } from '@store'
-import App from './app.component'
+import App from './component'
 
 function mapStateToProps(state: State) {
   return { contacts: state.contacts }

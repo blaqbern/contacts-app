@@ -4,22 +4,22 @@ import { Contact, ContactData } from '@src/types'
 import { Input } from '@components/input'
 
 import * as styleguide from '@styles'
-import * as styles from './edit-contact-details.styles'
+import * as styles from './styles'
 
-interface EditContactDetailsProps {
+interface Props {
   contact: Contact
   closeEditor(): void
   onSubmitUpdate(contactData: ContactData): void
 }
-interface EditContactDetailsState {
+interface State {
   name: string
   email: string
   phone: string
 }
 
 export class EditContactDetails extends React.PureComponent<
-  EditContactDetailsProps,
-  EditContactDetailsState
+  Props,
+  State
 > {
   state = {
     name: this.props.contact.name,
@@ -29,9 +29,7 @@ export class EditContactDetails extends React.PureComponent<
 
   handleInputChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
     const fieldName = e.currentTarget.name as keyof ContactData
-    const updated = {
-      [fieldName]: e.currentTarget.value,
-    } as Pick<EditContactDetailsState, keyof EditContactDetailsState>
+    const updated = { [fieldName]: e.currentTarget.value } as Pick<State, keyof State>
     this.setState(updated)
   }
 
