@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { Contact, ContactData } from '@src/types'
 import { DeleteContactAction, UpdateContactAction } from '@store'
+import { FormStateManager, ChildArgs } from '@components/form-state-manager'
 import { EditContactDetails } from '@components/edit-contact-details'
 import { ContactDetailsReadonly } from '@components/contact-details-readonly'
 
@@ -33,6 +34,24 @@ export class ContactTile extends React.PureComponent<Props, State> {
   enterEditMode = () => this.setState({ isEditing: true })
   exitEditMode = () => this.setState({ isEditing: false })
 
+  renderEditor = (args: ChildArgs) => {
+    if (!args.contactId) return <div>Something Went Wrong!</div>
+
+    const contact = {
+      id: args.contactId,
+      ...args.state,
+    }
+
+    return (
+      <EditContactDetails
+        contact={contact}
+        handleInputChange={args.handleInputChange}
+        onSubmitUpdate={this.handleSubmitUpdate}
+        closeEditor={this.exitEditMode}
+      />
+    )
+  }
+
   render() {
     const { contact } = this.props
     const { isEditing } = this.state
@@ -41,15 +60,8 @@ export class ContactTile extends React.PureComponent<Props, State> {
       <div className={styles.contactTile}>
         <div className="left">
           {isEditing
-            ? <EditContactDetails
-                contact={contact}
-                onSubmitUpdate={this.handleSubmitUpdate}
-                closeEditor={this.exitEditMode}
-              />
-            : <ContactDetailsReadonly
-                contact={contact}
-                openEditor={this.enterEditMode}
-              />
+            ? <FormStateManager contact={contact} render={this.renderEditor} />
+            : <ContactDetailsReadonly contact={contact} openEditor={this.enterEditMode} />
           }
         </div>
 

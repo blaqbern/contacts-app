@@ -6,40 +6,26 @@ import { Input } from '@components/input'
 import * as styleguide from '@styles'
 import * as styles from './styles'
 
-interface Props {
-  contact: Contact
+interface OwnProps {
   closeEditor(): void
   onSubmitUpdate(contactData: ContactData): void
 }
-interface State {
-  name: string
-  email: string
-  phone: string
+interface PropsFromFormStateManager {
+  contact: Contact
+  handleInputChange(e: React.SyntheticEvent<HTMLInputElement>): void
 }
+type Props = OwnProps & PropsFromFormStateManager
 
-export class EditContactDetails extends React.PureComponent<
-  Props,
-  State
-> {
-  state = {
-    name: this.props.contact.name,
-    email: this.props.contact.email,
-    phone: this.props.contact.phone,
-  }
-
-  handleInputChange = (e: React.SyntheticEvent<HTMLInputElement>) => {
-    const fieldName = e.currentTarget.name as keyof ContactData
-    const updated = { [fieldName]: e.currentTarget.value } as Pick<State, keyof State>
-    this.setState(updated)
-  }
-
+export class EditContactDetails extends React.PureComponent<Props> {
   handleSubmit = () => {
-    this.props.onSubmitUpdate(this.state)
+    const { name, email, phone } = this.props.contact
+
+    this.props.onSubmitUpdate({ name, email, phone })
     this.props.closeEditor()
   }
 
   render() {
-    const { contact, closeEditor } = this.props
+    const { contact, closeEditor, handleInputChange } = this.props
 
     const fields: (keyof ContactData)[] = ['name', 'email', 'phone']
 
@@ -50,8 +36,8 @@ export class EditContactDetails extends React.PureComponent<
             <Input
               key={`${contact.id}__${field}`}
               fieldName={field}
-              value={this.state[field]}
-              onChange={this.handleInputChange}
+              value={contact[field]}
+              onChange={handleInputChange}
             />
           )}
         </div>
