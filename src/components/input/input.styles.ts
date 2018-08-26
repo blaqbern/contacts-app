@@ -3,6 +3,7 @@ import { style } from 'typestyle'
 import { Color } from '@styles'
 
 export const input = style({
+  $debugName: 'input',
   display: 'flex',
   $nest: {
     label: {

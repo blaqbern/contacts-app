@@ -5,6 +5,7 @@ import { Color, link, addMarginBetween } from '@styles'
 
 const borderColor = color(Color.TEXT).fade(.4)
 export const contactTile = style({
+  $debugName: 'contactTile',
   display: 'flex',
   alignItems: 'center',
   padding: 10,

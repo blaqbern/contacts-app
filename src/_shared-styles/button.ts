@@ -5,6 +5,7 @@ import { Color } from './colors'
 
 const borderColor = color(Color.ACCENT_DARK).fade(.4)
 export const button = style({
+  $debugName: 'button',
   padding: 8,
   textAlign: 'center',
   color: Color.TEXT,
