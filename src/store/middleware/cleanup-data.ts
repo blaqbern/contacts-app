@@ -35,10 +35,16 @@ export const cleanupData: Middleware = ({ getState }: MiddlewareAPI) => (next: D
 
 function cleanupContactData(contactData: ContactData & { id?: string }): ContactData {
   const { email } = contactData
-  const name = contactData.name.replace(/([A-Z][a-z]*).*([A-Z][a-z]*)/, '$1 $2')
+  const name = formatName(contactData.name.replace(/[^a-zA-Z]/g, ''))
   const phone = formatPhoneNumber(contactData.phone.replace(/[^\d]/g, ''))
 
   return { name, email, phone }
+}
+
+function formatName(name: string): string {
+  const pattern = /([A-Z][a-z]*).*([A-Z][a-z]*)/
+  const format = '$1 $2'
+  return name.replace(pattern, format)
 }
 
 function formatPhoneNumber(phoneNo: string): string {
