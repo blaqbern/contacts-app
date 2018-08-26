@@ -5,22 +5,24 @@ import * as styles from './input.styles'
 interface InputProps {
   fieldName: string
   value: string
-  onChange(event: React.SyntheticEvent<HTMLInputElement>): void
+  onChange?(event: React.SyntheticEvent<HTMLInputElement>): void
+  readonly?: boolean
 }
 
 export const Input: React.SFC<InputProps> = ({
   fieldName,
   value,
-  onChange
+  onChange,
+  readonly,
 }) => {
+  const label = fieldName.replace(/(^\w)/, match => match.toUpperCase())
   return (
     <span className={styles.input}>
-      <label>{`${fieldName}:`}</label>
-      <input
-        name={fieldName}
-        value={value}
-        onChange={onChange}
-      />
+      <label>{`${label}:`}</label>
+      {readonly
+        ? <span className="value">{value}</span>
+        : <input name={fieldName} value={value} onChange={onChange} />
+      }
     </span>
   )
 }
