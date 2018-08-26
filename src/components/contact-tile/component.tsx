@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { Contact, ContactData } from '@src/types'
+import { DeleteContactAction, UpdateContactAction } from '@store'
 import { EditContactDetails } from '@components/edit-contact-details'
 import { ContactDetailsReadonly } from '@components/contact-details-readonly'
 
@@ -11,8 +12,8 @@ interface OwnProps {
   contact: Contact
 }
 interface PropsFromStore {
-  updateContact(contactId: string, contactData: ContactData): void
-  deleteContact(contactId: string): void
+  updateContact(contactId: string, contactData: ContactData): UpdateContactAction
+  deleteContact(contactId: string): DeleteContactAction
 }
 type Props = OwnProps & PropsFromStore
 

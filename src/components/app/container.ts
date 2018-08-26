@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators, Dispatch } from 'redux'
 
-import { State, getContacts } from '@store'
+import { State, getContacts, createContact } from '@store'
 import App from './component'
 
 function mapStateToProps(state: State) {
@@ -9,7 +9,7 @@ function mapStateToProps(state: State) {
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
-  return bindActionCreators({ getContacts }, dispatch)
+  return bindActionCreators({ getContacts, createContact }, dispatch)
 }
 
 export default connect(

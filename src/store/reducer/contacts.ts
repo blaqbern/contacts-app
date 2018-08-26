@@ -1,3 +1,4 @@
+import { generateUniqueId } from '@src/utils'
 import { State, Action, ActionType } from '../store.types'
 import { contact as contactReducer } from './contact'
 
@@ -7,7 +8,13 @@ export function contacts(state: State = { contacts: [] }, action: Action) {
       return { contacts: action.payload.contacts }
 
     case ActionType.CREATE:
-      return { contacts: [...state.contacts, action.payload.contact] }
+      const { name, email, phone } = action.payload.contactData
+      return {
+        contacts: [
+          ...state.contacts,
+          { id: generateUniqueId(), name, email, phone },
+        ],
+      }
 
     case ActionType.UPDATE:
       return {
@@ -22,7 +29,7 @@ export function contacts(state: State = { contacts: [] }, action: Action) {
       return {
         contacts: state.contacts.filter(c =>
           c && c.id !== action.payload.contactId
-        )
+        ),
       }
 
     default:
